@@ -20,6 +20,17 @@ const parse = async (_path: string) => {
     return lines;
 }
 
+interface IteratorResult<T> {
+    done: boolean;
+    value: T;
+}
+
+type Iterator<T> = {
+    next(value?: any): IteratorResult<T>;
+    return?(value?: any): IteratorResult<T>;
+    throw?(e?: any): IteratorResult<T>;
+}
+
 declare global {
     export interface Array<T> {
         chunks: (size: number) => Array<Array<T>>;
