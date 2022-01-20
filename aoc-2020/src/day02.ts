@@ -37,12 +37,6 @@ const verify02 = async (input: Pattern[]): Promise<number> => {
     return new Promise((resolve, _) =>
         resolve(input.map(pattern => {
                 const [a, b] = pattern.ab;
-                // console.log(`${a} ${b} ${pattern.ch} ${pattern.passwd[a-1]}
-                // ${(pattern.passwd[a + 1] === pattern.ch) !=
-                // (pattern.passwd[b + 1] === pattern.ch)}
-                // ${(pattern.passwd[a + 1] === pattern.ch)}
-                // ${(pattern.passwd[b + 1] === pattern.ch)}
-                // `)
                 return (pattern.passwd[a - 1] === pattern.ch) !=
                     (pattern.passwd[b - 1] === pattern.ch);
             }

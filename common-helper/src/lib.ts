@@ -45,4 +45,16 @@ Array.prototype.chunks = function(size: number) {
     return arrays;
 }
 
+declare global {
+    export interface Number {
+        between: (a: number, b: number) => boolean;
+    }
+}
+
+Number.prototype.between = function(a, b) {
+    const   min = Math.min.apply(Math, [a, b]),
+            max = Math.max.apply(Math, [a, b]);
+    return this >= min && this < max;
+};
+
 export default parse;
