@@ -11,5 +11,6 @@
 
 members = [
     "common-helper",
-    "aoc-2020"
+    "aoc-2020",
+	"aoc-2019"
 ]
