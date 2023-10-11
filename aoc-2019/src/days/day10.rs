@@ -36,6 +36,19 @@ impl Space {
         visible
     }
 
+    fn get_visible(&mut self, a: &Asteroid) -> Vec<Asteroid> {
+        let (asteroids, indirect) = (&self.asteroids, &mut self.indirect);
+        asteroids.iter()
+            .filter(|asteroid| {
+                if a == *asteroid {
+                    return false;
+                }
+                Self::is_visible_cached(a, asteroid, asteroids, indirect)
+            })
+            .map(|asteroid| asteroid.clone())
+            .collect()
+    }
+
     fn is_visible_cached(a: &Asteroid, b: &Asteroid, asteroids: &Vec<Asteroid>, indirect: &mut HashSet<(Asteroid, Asteroid)>) -> bool {
         if indirect.get(&(*a,*b)).is_some() || indirect.get(&(*b,*a)).is_some() {
             return false;
@@ -67,18 +80,32 @@ pub struct Day;
 
 impl<'a> Solution<'a> for Day {
     type Input = Vec<Asteroid>;
-    type Output = usize;
+    type Output = Option<usize>;
     const DAY: &'a str = "Day10";
 
     fn part1(input: &Self::Input) -> Self::Output {
         let mut space = Space::new(input.clone());
         input.iter().map(|asteroid| {
             space.count_visible(asteroid)
-        }).max().unwrap()
+        }).max()
     }
 
     fn part2(input: &Self::Input) -> Self::Output {
-        0
+        const TARGET: Asteroid = Asteroid { x: 22, y: 28 };
+        let mut space = Space::new(input.clone());
+        let mut visible = space.get_visible(&TARGET).into_iter()
+            .map(|asteroid| {
+                let angle = f64::atan2((TARGET.y - asteroid.y) as f64, (TARGET.x - asteroid.x) as f64) - std::f64::consts::PI / 2.0;
+                let angle = if angle < 0.0 { angle + 2.0 * std::f64::consts::PI } else { angle };
+                (angle, asteroid)
+            }).collect::<Vec<_>>();
+        visible.sort_by(|(angle, _), (angle2, _)| {
+            angle.partial_cmp(angle2).unwrap()
+        });
+        if let Some((_, ast)) = visible.get(199) {
+            return Some((ast.x * 100 + ast.y) as usize);
+        }
+        None
     }
 
     fn parse_input(raw_input: &Vec<String>) -> Self::Input {
@@ -102,13 +129,13 @@ mod tests {
     fn basic_test_00() {
         let input = parse("input/day10_test.in");
         let input = Day::parse_input(&input);
-        assert_eq!(Day::part1(&input), 8);
+        assert_eq!(Day::part1(&input), Some(8));
     }
 
     #[test]
     fn basic_test_01() {
         let input = parse("input/day10_basic.in");
         let input = Day::parse_input(&input);
-        assert_eq!(Day::part1(&input), 33);
+        assert_eq!(Day::part1(&input), Some(33));
     }
 }
