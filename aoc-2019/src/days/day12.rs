@@ -80,7 +80,6 @@ pub struct System {
 
 impl System {
     fn step(&mut self) {
-        // prepare
         let moons = self.moons.clone();
         for moon in self.moons.iter_mut() {
             for other in moons.iter() {
@@ -89,10 +88,6 @@ impl System {
                 }
                 moon.update_vel(&other);
             }
-        }
-
-        // update
-        for moon in self.moons.iter_mut() {
             moon.update();
         }
     }
