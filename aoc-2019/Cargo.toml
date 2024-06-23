@@ -1,0 +1,18 @@
+[package]
+name = "aoc-2019"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "aoc_2019_impl"
+path = "src/lib.rs"
+bench = true
+
+[[bin]]
+name = "aoc-2019"
+path = "src/bin/main.rs"
+
+[dependencies]
+thiserror = "1.0"
