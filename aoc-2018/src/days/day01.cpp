@@ -12,7 +12,6 @@ int Day01::part2(const std::vector<int> &input) {
   int freq = 0;
   while (true) {
     for (auto item : input) {
-      // std::cout << freq << std::endl;
       freq += item;
       if (seen.contains(freq)) {
         return freq;
