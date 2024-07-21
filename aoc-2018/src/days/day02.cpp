@@ -53,7 +53,7 @@ int Day02::part2(const Input &input) {
   return -1;
 }
 
-Input Day02::parse(std::vector<std::string> input) {
+Input Day02::parse(const std::vector<std::string>& input) {
   auto result = input | std::views::transform([](std::string s) {
                   return std::vector<char>(s.begin(), s.end());
                 });

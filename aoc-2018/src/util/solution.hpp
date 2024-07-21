@@ -11,7 +11,7 @@ public:
   virtual T part1(const I &input) = 0;
   virtual T part2(const I &input) = 0;
 
-  virtual I parse(std::vector<std::string> raw_input) = 0;
+  virtual I parse(const std::vector<std::string>& raw_input) = 0;
 
   void solve() {
     std::stringstream ss;

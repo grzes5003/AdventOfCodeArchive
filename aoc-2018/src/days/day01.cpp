@@ -21,7 +21,7 @@ int Day01::part2(const std::vector<int> &input) {
   }
 }
 
-std::vector<int> Day01::parse(std::vector<std::string> input) {
+std::vector<int> Day01::parse(const std::vector<std::string>& input) {
   auto result =
       input | std::views::transform([](std::string s) { return std::stoi(s); });
 

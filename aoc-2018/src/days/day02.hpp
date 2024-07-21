@@ -10,7 +10,7 @@ public:
   int part1(const Input &input) override;
   int part2(const Input &input) override;
 
-  Input parse(std::vector<std::string> input) override;
+  Input parse(const std::vector<std::string>& input) override;
 
   Day02() { this->DAY = "day02"; }
 
