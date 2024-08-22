@@ -1,8 +1,8 @@
 #include "util/file_reader.hpp"
-#include "days/day07.hpp"
+#include "days/day08.hpp"
 
 int main(int argc, char *argv[]) {
-  Day07 day;
+  Day08 day;
   day.solve();
   return 0;
 }
