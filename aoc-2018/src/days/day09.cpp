@@ -1,7 +1,6 @@
 #include "day09.hpp"
 #include "../util/cllist.hpp"
 #include <algorithm>
-#include <ostream>
 
 Game Day09::parse(const std::vector<std::string> &input) {
   return Game(428, 70825);

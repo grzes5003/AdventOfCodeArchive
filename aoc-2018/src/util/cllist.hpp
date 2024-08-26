@@ -14,11 +14,9 @@ template <typename T> struct Node {
 template <typename T>
 class CircularLinkedList {
 public:
-  // friend std::ostream &operator<<(std::ostream &out, const CircularLinkedList<T> &list);
 
   uint64_t len;
   std::shared_ptr<Node<T>> current;
-// public:
   void insert(T value);
   std::optional<T> get();
   T pop();
