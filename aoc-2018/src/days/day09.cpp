@@ -1,5 +1,5 @@
 #include "day09.hpp"
-#include "../util/cllist.hpp"
+#include "src/util/cllist.hpp"
 #include <algorithm>
 
 Game Day09::parse(const std::vector<std::string> &input) {

@@ -1,6 +1,6 @@
 #include "day07.hpp"
-#include "../util/string_extra.hpp"
-#include "../util/vector_extra.hpp"
+#include "src/util/string_extra.hpp"
+#include "src/util/vector_extra.hpp"
 #include <algorithm>
 #include <array>
 #include <cstdint>

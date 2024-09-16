@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <vector>
-#include "../../src/days/day01.hpp"
+#include "src/days/day01.hpp"
 
 TEST(D01Task2, ExampleOne) {
   Day01 day01;

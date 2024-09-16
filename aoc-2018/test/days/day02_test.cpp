@@ -1,4 +1,4 @@
-#include "../../src/days/day02.hpp"
+#include "src/days/day02.hpp"
 #include <gtest/gtest.h>
 #include <vector>
 

@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include "../util/solution.hpp"
+#include "src/util/solution.hpp"
 
 
 class Day01 : public Solution<int, std::vector<int>> {

@@ -1,4 +1,3 @@
-
 #include "day10.hpp"
 #include <algorithm>
 #include <iterator>

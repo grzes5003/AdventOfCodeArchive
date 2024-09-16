@@ -1,5 +1,4 @@
-
-#include "../util/solution.hpp"
+#include "src/util/solution.hpp"
 #include <cstdint>
 #include <string>
 #include <map>
